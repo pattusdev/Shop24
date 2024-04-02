@@ -1,23 +1,29 @@
-package com.Bk24Shop.Shop.Entity;
+package com.Bk24Shop.Shop.entity;
 
+import com.Bk24Shop.Shop.enums.EOrderStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
-@Entity
 @Data
+@Entity
+@Table(name = "`order`")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long orderId;
 
     @ManyToOne
+    @JoinColumn(name = "client_id")
     private Client client;
 
-    @ManyToMany
-    private List<Drink> drinks;
+    @Enumerated(EnumType.STRING)
+    private EOrderStatus status; //Pending,Completed,Cancelled
 
-    private boolean completed;
 
+    private LocalDateTime timestamp;
+
+    // Getters and setters
 }
+

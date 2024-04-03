@@ -7,6 +7,6 @@ import java.util.HashMap;
 public interface ReceiptService {
     HashMap<String, Object> createReceipt(Receipt receipt);
     HashMap<String, Object> getAllReceipts();
-    HashMap<String, Object> getReceiptById(Long receiptId);
-    HashMap<String, Object> deleteReceipt(Long receiptId);
+    HashMap<String, Object> getReceiptById(Long id);
+    HashMap<String, Object> deleteReceipt(Long id);
 }

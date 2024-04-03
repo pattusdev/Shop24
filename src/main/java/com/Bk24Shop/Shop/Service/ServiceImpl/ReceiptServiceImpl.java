@@ -54,9 +54,9 @@ public class ReceiptServiceImpl implements ReceiptService {
     }
 
     @Override
-    public HashMap<String, Object> getReceiptById(Long receiptId) {
+    public HashMap<String, Object> getReceiptById(Long id) {
         HashMap<String, Object> map = new HashMap<>();
-        Optional<Receipt> findReceipt = receiptRepository.findById(receiptId);
+        Optional<Receipt> findReceipt = receiptRepository.findById(id);
         if (findReceipt.isEmpty()) {
             Error error = new Error();
             error.setErrorCode(Errors.error3.code);
@@ -69,16 +69,16 @@ public class ReceiptServiceImpl implements ReceiptService {
     }
 
     @Override
-    public HashMap<String, Object> deleteReceipt(Long receiptId) {
+    public HashMap<String, Object> deleteReceipt(Long id) {
         HashMap<String, Object> map = new HashMap<>();
-        Optional<Receipt> findReceipt = receiptRepository.findById(receiptId);
+        Optional<Receipt> findReceipt = receiptRepository.findById(id);
         if (findReceipt.isEmpty()) {
             Error error = new Error();
             error.setErrorCode(Errors.error3.code);
             error.setErrorMessage(Errors.error3.message);
             map.put("Object", error);
         } else {
-            receiptRepository.deleteById(receiptId);
+            receiptRepository.deleteById(id);
             Success success = new Success();
             success.setSuccessCode(Successes.success1.code);
             success.setSuccessMessage(Successes.success1.message);

@@ -53,9 +53,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public HashMap<String, Object> getOrderById(Long orderId) {
+    public HashMap<String, Object> getOrderById(Long id) {
         HashMap<String, Object> map = new HashMap<>();
-        Optional<Order> findOrder = orderRepository.findById(orderId);
+        Optional<Order> findOrder = orderRepository.findById(id);
         if (findOrder.isEmpty()) {
             Error error = new Error();
             error.setErrorCode(Errors.error7.code);
@@ -68,16 +68,16 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public HashMap<String, Object> deleteOrder(Long orderId) {
+    public HashMap<String, Object> deleteOrder(Long id) {
         HashMap<String, Object> map = new HashMap<>();
-        Optional<Order> findOrder = orderRepository.findById(orderId);
+        Optional<Order> findOrder = orderRepository.findById(id);
         if (findOrder.isEmpty()) {
             Error error = new Error();
             error.setErrorCode(Errors.error7.code);
             error.setErrorMessage(Errors.error7.message);
             map.put("Object", error);
         } else {
-            orderRepository.deleteById(orderId);
+            orderRepository.deleteById(id);
             Success success = new Success();
             success.setSuccessCode(Successes.success1.code);
             success.setSuccessMessage(Successes.success1.message);

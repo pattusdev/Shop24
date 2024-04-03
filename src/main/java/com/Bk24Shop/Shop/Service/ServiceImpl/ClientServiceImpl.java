@@ -27,7 +27,7 @@ public class ClientServiceImpl implements ClientService {
     @PostConstruct
     public void initCache() {
         List<Client> clients = clientRepository.findAll();
-        clients.forEach(client -> clientCache.put(client.getClientId(), client));
+        clients.forEach(client -> clientCache.put(client.getId(), client));
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ClientServiceImpl implements ClientService {
         HashMap<String, Object> map = new HashMap<>();
         try {
             Client createdClient = clientRepository.save(client);
-            clientCache.put(createdClient.getClientId(), createdClient);
+            clientCache.put(createdClient.getId(), createdClient);
             map.put("Object", createdClient);
         } catch (Exception e) {
             Error error = new Error();
@@ -62,9 +62,9 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public HashMap<String, Object> getClientById(Long clientId) {
+    public HashMap<String, Object> getClientById(Long id) {
         HashMap<String, Object> map = new HashMap<>();
-        Optional<Client> findClient = clientRepository.findById(clientId);
+        Optional<Client> findClient = clientRepository.findById(id);
         if (findClient.isEmpty()) {
             Error error = new Error();
             error.setErrorCode(Errors.error4.code);
@@ -77,17 +77,17 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public HashMap<String, Object> deleteClient(Long clientId) {
+    public HashMap<String, Object> deleteClient(Long id) {
         HashMap<String, Object> map = new HashMap<>();
-        Optional<Client> findClient = clientRepository.findById(clientId);
+        Optional<Client> findClient = clientRepository.findById(id);
         if (findClient.isEmpty()) {
             Error error = new Error();
             error.setErrorCode(Errors.error4.code);
             error.setErrorMessage(Errors.error4.message);
             map.put("Object", error);
         } else {
-            clientRepository.deleteById(clientId);
-            clientCache.remove(clientId);
+            clientRepository.deleteById(id);
+            clientCache.remove(id);
             Success success = new Success();
             success.setSuccessCode(Successes.success1.code);
             success.setSuccessMessage(Successes.success1.message);

@@ -9,12 +9,14 @@ import lombok.Data;
 public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cargoId;
+    private Long id;
 
     private String name;
 
     @Enumerated(EnumType.STRING)
     private ECargoType type; //Truck, Van, Bike, Other
+
+    private String address;
 
     private double latitude;
     private double longitude;

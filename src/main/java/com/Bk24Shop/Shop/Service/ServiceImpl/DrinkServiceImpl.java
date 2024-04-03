@@ -28,7 +28,7 @@ public class DrinkServiceImpl implements DrinkService {
     @PostConstruct
     public void initCache() {
         List<Drink> drinks = drinkRepository.findAll();
-        drinks.forEach(drink -> drinkCache.put(drink.getDrinkId(), drink));
+        drinks.forEach(drink -> drinkCache.put(drink.getId(), drink));
     }
 
 
@@ -66,10 +66,10 @@ public class DrinkServiceImpl implements DrinkService {
 
 
     @Override
-    public HashMap<String, Object> getDrinkById(Long drinkId) {
+    public HashMap<String, Object> getDrinkById(Long id) {
         HashMap<String, Object> map = new HashMap<>();
 
-        Optional<Drink> findDrink = drinkRepository.findById(drinkId);
+        Optional<Drink> findDrink = drinkRepository.findById(id);
         if (findDrink.isEmpty()) {
             Error error = new Error();
             error.setErrorCode(Errors.error1.code);
@@ -84,17 +84,17 @@ public class DrinkServiceImpl implements DrinkService {
 
 
     @Override
-    public HashMap<String, Object> deleteDrink(Long drinkId) {
+    public HashMap<String, Object> deleteDrink(Long id) {
         HashMap<String, Object> map = new HashMap<>();
 
-        Optional<Drink> findDrink = drinkRepository.findById(drinkId);
+        Optional<Drink> findDrink = drinkRepository.findById(id);
         if (findDrink.isEmpty()) {
             Error error = new Error();
             error.setErrorCode(Errors.error1.code);
             error.setErrorMessage(Errors.error1.message);
             map.put("Object", error);
         } else {
-            drinkRepository.deleteById(drinkId);
+            drinkRepository.deleteById(id);
             Success success = new Success();
             success.setSuccessCode(Successes.success1.code);
             success.setSuccessMessage(Successes.success1.message);

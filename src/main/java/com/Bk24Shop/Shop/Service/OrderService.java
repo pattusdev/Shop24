@@ -8,8 +8,8 @@ import java.util.HashMap;
 public interface OrderService {
     HashMap<String, Object> createOrder(Order order);
     HashMap<String, Object> getAllOrders();
-    HashMap<String, Object> getOrderById(Long orderId);
-    HashMap<String, Object> deleteOrder(Long orderId);
+    HashMap<String, Object> getOrderById(Long id);
+    HashMap<String, Object> deleteOrder(Long id);
     HashMap<String, Object> findTopFiveOrdersByDifferentClients();
 
     HashMap<String, Object> findTopTenPaidOrdersWithDetails();

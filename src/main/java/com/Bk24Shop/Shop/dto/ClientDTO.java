@@ -1,11 +1,9 @@
 package com.Bk24Shop.Shop.dto;
 
-import com.example.BkShop24.Enums.ECargoType;
-import com.example.BkShop24.model.Location;
+import com.Bk24Shop.Shop.enums.ECargoType;
+import com.Bk24Shop.Shop.enums.EClientType;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,12 +16,12 @@ public class ClientDTO {
     private String name;
 
     @Enumerated(EnumType.STRING)
-    private ECargoType type; //Truck, Van, Bike, Other
+    private EClientType type; //Truck, Van, Bike, Other
 
-    @ManyToOne
-    @JoinColumn(name = "location_id")
-    private Location location;
+    private String address;
 
+    private double latitude;
+    private double longitude;
 }
 
 // Getters and setters

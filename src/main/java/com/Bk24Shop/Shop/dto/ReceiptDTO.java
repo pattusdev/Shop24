@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class ReceiptDTO {
-    
+
     @OneToOne
     private Order order;
 

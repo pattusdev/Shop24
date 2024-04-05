@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.controller;
 
+import com.Bk24Shop.Shop.dto.ReceiptDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Receipt;
 import com.Bk24Shop.Shop.entity.Success;
@@ -21,7 +22,7 @@ public class ReceiptController {
     private ReceiptService receiptService;
 
     @PostMapping("/create")
-    public ResponseEntity createReceipt(@RequestBody Receipt receipt) {
+    public ResponseEntity createReceipt(@RequestBody ReceiptDTO receipt) {
         HashMap<String, Object> map = receiptService.createReceipt(receipt);
         if (map.containsKey("error")) {
             Error error = (Error) map.get("error");

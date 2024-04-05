@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.controller;
 
+import com.Bk24Shop.Shop.dto.CargoDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.entity.Cargo;
@@ -23,7 +24,7 @@ public class CargoController {
     private CargoService cargoService;
 
     @PostMapping("/create")
-    public ResponseEntity createCargo(@RequestBody Cargo cargo) {
+    public ResponseEntity createCargo(@RequestBody CargoDTO cargo) {
         HashMap<String, Object> map = cargoService.createCargo(cargo);
         if (map.containsKey("error")) {
             Error error = (Error) map.get("error");
@@ -71,5 +72,11 @@ public class CargoController {
         } else {
             return ResponseEntity.ok(map.get("Object"));
         }
+    }
+    @GetMapping("/nearest-cargo")
+    public HashMap<String, Object> getNearestCargoCompany(@RequestBody HashMap<String, Double> requestBody) {
+        double latitude = requestBody.get("latitude");
+        double longitude = requestBody.get("longitude");
+        return cargoService.findNearestCargoCompany(latitude, longitude);
     }
 }

@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.controller;
 
+import com.Bk24Shop.Shop.dto.DrinkDTO;
 import com.Bk24Shop.Shop.dto.MostConsumedDrinkDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
@@ -37,7 +38,7 @@ public class DrinkController {
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
     @PostMapping("/create")
-    public ResponseEntity createDrink(@RequestBody Drink drink) {
+    public ResponseEntity createDrink(@RequestBody DrinkDTO drink) {
         HashMap<String, Object> map = new HashMap<>();
         map = drinkService.createDrink(drink);
         return new ResponseEntity(map.get("Object"), HttpStatus.CREATED);

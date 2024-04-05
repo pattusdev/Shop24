@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.service.serviceImpl;
 
+import com.Bk24Shop.Shop.dto.DrinkDTO;
 import com.Bk24Shop.Shop.dto.MostConsumedDrinkDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
@@ -33,8 +34,12 @@ public class DrinkServiceImpl implements DrinkService {
 
 
     @Override
-    public HashMap createDrink(Drink drink){
-
+    public HashMap createDrink(DrinkDTO drinkDTO){
+        Drink drink = new Drink();
+        drink.setCargo(drinkDTO.getCargo());
+        drink.setType(drinkDTO.getType());
+        drink.setName(drinkDTO.getName());
+        drink.setQuantity(drinkDTO.getQuantity());
         HashMap<String, Object> map = new HashMap<>();
         try{
             Drink createdDrink = drinkRepository.save(drink);

@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.controller;
 
+import com.Bk24Shop.Shop.dto.OrderDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.entity.*;
@@ -21,7 +22,7 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/create")
-    public ResponseEntity createOrder(@RequestBody Order order) {
+    public ResponseEntity createOrder(@RequestBody OrderDTO order) {
         HashMap<String, Object> map = orderService.createOrder(order);
         if (map.containsKey("error")) {
             Error error = (Error) map.get("error");

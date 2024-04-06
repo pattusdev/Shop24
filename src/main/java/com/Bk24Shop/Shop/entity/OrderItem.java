@@ -11,12 +11,10 @@ public class OrderItem {
 
     @ManyToOne
     @MapsId("orderId")
-    @JoinColumn(name = "order_id")
     private Order order;
 
     @ManyToOne
     @MapsId("drinkId")
-    @JoinColumn(name = "drink_id")
     private Drink drink;
 
     private int quantity;

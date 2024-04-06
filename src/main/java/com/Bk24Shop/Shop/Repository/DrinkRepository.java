@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface DrinkRepository extends JpaRepository<Drink, Long> {
 
-    @Query("SELECT new com.example.BkShop24.dto.MostConsumedDrinkDTO(d.drinkId, d.name, SUM(oi.quantity) AS totalQuantity) " +
+    @Query("SELECT new com.Bk24Shop.Shop.dto.MostConsumedDrinkDTO(d.id, d.name, SUM(oi.quantity) AS totalQuantity) " +
             "FROM Drink d " +
-            "JOIN OrderItem oi ON d.drinkId = oi.drink.drinkId " +
-            "GROUP BY d.drinkId, d.name " +
+            "JOIN OrderItem oi ON d.id = oi.drink.id " +
+            "GROUP BY d.id, d.name " +
             "ORDER BY totalQuantity DESC")
     List<MostConsumedDrinkDTO> findMostConsumedDrinks();
 }

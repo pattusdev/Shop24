@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Data
 @Embeddable
 public class OrderItemId implements Serializable {
+
     private Long orderId;
     private Long drinkId;
 

@@ -10,10 +10,9 @@ import java.time.LocalDateTime;
 public class Receipt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long receiptId;
+    private Long id;
 
     @OneToOne
-    @JoinColumn(name = "order_id")
     private Order order;
 
     private LocalDateTime timestamp;

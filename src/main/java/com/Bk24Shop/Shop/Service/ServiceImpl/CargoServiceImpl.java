@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.service.serviceImpl;
 
+import com.Bk24Shop.Shop.dto.CargoDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.enums.Successes;
@@ -44,7 +45,13 @@ public class CargoServiceImpl implements CargoService {
     }
 
     @Override
-    public HashMap<String, Object> createCargo(Cargo cargo) {
+    public HashMap<String, Object> createCargo(CargoDTO cargoDTO) {
+        Cargo cargo = new Cargo();
+        cargo.setType(cargoDTO.getType());
+        cargo.setName(cargoDTO.getName());
+        cargo.setAddress(cargoDTO.getAddress());
+        cargo.setLongitude(cargoDTO.getLongitude());
+        cargo.setLatitude(cargoDTO.getLatitude());
         HashMap<String, Object> map = new HashMap<>();
         try {
             Cargo createdCargo = cargoRepository.save(cargo);

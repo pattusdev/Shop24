@@ -9,10 +9,10 @@ import lombok.Data;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long clientId;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
-    private EClientType clientType; //Organisation,Individual
+    private EClientType type; //Organisation,Individual
 
     private String name;
 

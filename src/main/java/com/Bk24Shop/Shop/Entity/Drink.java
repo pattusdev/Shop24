@@ -9,7 +9,7 @@ import lombok.Data;
 public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long drinkId;
+    private Long id;
 
     private String name;
 
@@ -19,8 +19,7 @@ public class Drink {
     private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "cargo_company_id")
-    private Cargo cargoCompany;
+    private Cargo cargo;
 
     // Getters and setters
 }

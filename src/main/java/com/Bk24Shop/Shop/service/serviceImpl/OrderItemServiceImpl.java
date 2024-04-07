@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.service.serviceImpl;
 
+import com.Bk24Shop.Shop.dto.OrderItemDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.enums.Successes;
@@ -25,7 +26,11 @@ public class OrderItemServiceImpl implements OrderItemService {
     private final Map<OrderItemId, OrderItem> orderItemCache = new HashMap<>();
 
     @Override
-    public HashMap<String, Object> createOrderItem(OrderItem orderItem) {
+    public HashMap<String, Object> createOrderItem(OrderItemDTO orderItemDTO) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setOrder(orderItemDTO.getOrder());
+        orderItem.setDrink(orderItemDTO.getDrink());
+        orderItem.setQuantity(orderItemDTO.getQuantity());
         HashMap<String, Object> map = new HashMap<>();
         try {
             OrderItem createdOrderItem = orderItemRepository.save(orderItem);

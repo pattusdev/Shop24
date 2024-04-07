@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.service.serviceImpl;
 
+import com.Bk24Shop.Shop.dto.ClientDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.enums.Successes;
@@ -31,7 +32,14 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public HashMap<String, Object> createClient(Client client) {
+    public HashMap<String, Object> createClient(ClientDTO clientDTO) {
+        Client client = new Client();
+        client.setName(clientDTO.getName());
+        client.setAddress(clientDTO.getAddress());
+        client.setType(clientDTO.getType());
+        client.setLatitude(clientDTO.getLatitude());
+        client.setLongitude(clientDTO.getLongitude());
+
         HashMap<String, Object> map = new HashMap<>();
         try {
             Client createdClient = clientRepository.save(client);

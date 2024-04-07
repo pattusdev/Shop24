@@ -1,5 +1,6 @@
 package com.Bk24Shop.Shop.service.serviceImpl;
 
+import com.Bk24Shop.Shop.dto.ReceiptDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.enums.Successes;
@@ -24,7 +25,10 @@ public class ReceiptServiceImpl implements ReceiptService {
     private final Map<Long, Receipt> receiptCache = new HashMap<>();
 
     @Override
-    public HashMap<String, Object> createReceipt(Receipt receipt) {
+    public HashMap<String, Object> createReceipt(ReceiptDTO receiptDTO) {
+        Receipt receipt = new Receipt();
+        receipt.setTimestamp(receiptDTO.getTimestamp());
+        receipt.setOrder(receiptDTO.getOrder());
         HashMap<String, Object> map = new HashMap<>();
         try {
             Receipt createdReceipt = receiptRepository.save(receipt);

@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
+
 @Tag(name = "Cargo", description = "Cargos management APIs")
 @RestController
 @Slf4j
@@ -73,10 +75,27 @@ public class CargoController {
             return ResponseEntity.ok(map.get("Object"));
         }
     }
-    @GetMapping("/nearest-cargo")
-    public HashMap<String, Object> getNearestCargoCompany(@RequestBody HashMap<String, Double> requestBody) {
-        double latitude = requestBody.get("latitude");
-        double longitude = requestBody.get("longitude");
-        return cargoService.findNearestCargoCompany(latitude, longitude);
+
+    @GetMapping("/{clientId}/nearest-and-available-drinks")
+    public ResponseEntity<?> getNearestCargoAndAvailableDrinks(@PathVariable Long clientId) {
+        HashMap<String, Object> result = cargoService.findNearestCargoAndAvailableDrinks(clientId);
+        if (result.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(result);
+    }
+    @GetMapping("/{clientId}/closest-cargo")
+    public ResponseEntity<?> getClosestCargoCompanies(@PathVariable Long clientId) {
+        // Retrieve the 3 closest cargo companies for the given client
+        HashMap<String, Object> cargoResult = cargoService.findClosestCargoCompanies(clientId);
+
+        if (cargoResult.containsKey("error")) {
+            // If there's an error, return the error response
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(cargoResult.get("error"));
+        } else {
+            // If successful, return the closest cargo companies
+            List<Cargo> closestCargoCompanies = (List<Cargo>) cargoResult.get("closestCargoCompanies");
+            return ResponseEntity.ok(closestCargoCompanies);
+        }
     }
 }

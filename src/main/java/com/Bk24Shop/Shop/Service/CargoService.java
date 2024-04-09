@@ -12,6 +12,6 @@ public interface CargoService {
     HashMap<String, Object> getAllCargo();
     HashMap<String, Object> getCargoById(Long id);
     HashMap<String, Object> deleteCargo(Long id);
-    HashMap<String, Object> findNearestCargoCompany(double latitude, double longitude);
-
+    HashMap<String, Object> findNearestCargoAndAvailableDrinks(Long clientId);
+    HashMap<String, Object> findClosestCargoCompanies(Long clientId);
 }

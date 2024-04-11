@@ -38,3 +38,12 @@ Shop24 and transport to their clients. They would like your help building these 
 • Get a list of all available drinks and nearest cargo company to the client within 3km based on the client's location.
 
 • Get a specific drink by ID.
+
+### ORDER
+• Create a new 'order' request by assigning a list of drinks to a specific client.
+
+• Choose top five orders that were requested by different clients.
+
+• Get top 10 paid orders, their client details, and transporter details.
+
+• Complete an order.

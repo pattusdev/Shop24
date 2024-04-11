@@ -48,3 +48,9 @@ Shop24 and transport to their clients. They would like your help building these 
 
 • Complete an order.
 
+### CLIENT
+• Get a list of all clients.
+
+• Get a specific client by ID.
+
+• For a specific retailer client/hotel, get a list of the 3 closest cargo companies.

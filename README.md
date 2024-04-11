@@ -24,3 +24,7 @@ Shop24 and transport to their clients. They would like your help building these 
 • Your ability to model the problem domain (data models and APIs)
 • Your ability to document APIs
 • Bonus points if you include tests in your solution
+
+## What are we not looking to test?
+• We don't expect you to implement authenticationor
+authorization

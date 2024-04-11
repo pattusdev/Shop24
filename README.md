@@ -13,7 +13,7 @@ Shop24 and transport to their clients. They would like your help building these 
 
 • We would like you to develop a single service in either Spring Boot that exposes several REST endpoints (see next page)
 
-• You can use whatever database you want (we recommend using SQLIite, MySQL or Postgres)
+• You can use whatever database you want (we recommend using SQLite, MySQL or Postgres)
 
 • You should include a README file that has instructions for us to get the solution running on our machines
 
@@ -26,5 +26,4 @@ Shop24 and transport to their clients. They would like your help building these 
 • Bonus points if you include tests in your solution
 
 ## What are we not looking to test?
-• We don't expect you to implement authenticationor
-authorization
+• We don't expect you to implement authentication or authorization

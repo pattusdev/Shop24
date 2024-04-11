@@ -27,3 +27,14 @@ Shop24 and transport to their clients. They would like your help building these 
 
 ## What are we not looking to test?
 • We don't expect you to implement authentication or authorization
+
+## API Requirements for Shop24
+
+### DRINKS
+• Get a list of all drinks.
+
+• Get a list of most consumed drinks and quantity.
+
+• Get a list of all available drinks and nearest cargo company to the client within 3km based on the client's location.
+
+• Get a specific drink by ID.

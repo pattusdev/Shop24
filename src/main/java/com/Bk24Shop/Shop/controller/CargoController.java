@@ -1,11 +1,17 @@
 package com.Bk24Shop.Shop.controller;
 
 import com.Bk24Shop.Shop.dto.CargoDTO;
+import com.Bk24Shop.Shop.entity.Drink;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.entity.Cargo;
 import com.Bk24Shop.Shop.entity.Success;
 import com.Bk24Shop.Shop.service.CargoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +31,14 @@ public class CargoController {
     @Autowired
     private CargoService cargoService;
 
+    @Operation(
+            summary = "Create a Cargo",
+            description = "Create Cargo  and its Specification Details.",
+            tags = { "cargos", "post" })
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Cargo.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
     @PostMapping("/create")
     public ResponseEntity createCargo(@RequestBody CargoDTO cargo) {
         HashMap<String, Object> map = cargoService.createCargo(cargo);
@@ -37,6 +51,15 @@ public class CargoController {
         }
     }
 
+    @Operation(
+            summary = "Retrieve List of All Cargos",
+            description = "Get a List All Cargos Details. The response is List of All Cargos.",
+            tags = { "cargos", "get" })
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Cargo.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+
     @GetMapping
     public ResponseEntity getAllCargos() {
         HashMap<String, Object> map = cargoService.getAllCargo();
@@ -47,6 +70,15 @@ public class CargoController {
             return ResponseEntity.ok(map.get("Object"));
         }
     }
+
+    @Operation(
+            summary = "Delete a Cargo by ID",
+            description = "Delete a Cargo by specifying its id. The response is Cargo Deleted with its id.",
+            tags = { "cargo", "get" })
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Cargo.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
 
     @GetMapping("delete/{cargoId}")
     public ResponseEntity deleteCargo(@PathVariable Long cargoId) {
@@ -65,6 +97,15 @@ public class CargoController {
         }
     }
 
+    @Operation(
+            summary = "Retrieve a Cargo by ID",
+            description = "Get a Cargo Details by specifying its id. The response is Cargo Details",
+            tags = { "cargo", "get" })
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Cargo.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+
     @GetMapping("/{cargoId}")
     public ResponseEntity getCargoById(@PathVariable Long cargoId) {
         HashMap<String, Object> map = cargoService.getCargoById(cargoId);
@@ -76,6 +117,15 @@ public class CargoController {
         }
     }
 
+    @Operation(
+            summary = "Retrieve Nearest And Available Drinks",
+            description = "Get Nearest And Available Drinks. The response is Get Nearest And Available Drinks.",
+            tags = { "cargo", "get" })
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Cargo.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+
     @GetMapping("/{clientId}/nearest-and-available-drinks")
     public ResponseEntity<?> getNearestCargoAndAvailableDrinks(@PathVariable Long clientId) {
         HashMap<String, Object> result = cargoService.findNearestCargoAndAvailableDrinks(clientId);
@@ -84,7 +134,17 @@ public class CargoController {
         }
         return ResponseEntity.ok(result);
     }
-    @GetMapping("/{clientId}/closest-cargo")
+
+    @Operation(
+            summary = "Retrieve Closest Cargos to the Client",
+            description = "Get Closest Cargos to the Client. The response is Get Closest Cargos.",
+            tags = { "cargos", "get" })
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Cargo.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+
+    @GetMapping("/{clientId}/closest-cargos")
     public ResponseEntity<?> getClosestCargoCompanies(@PathVariable Long clientId) {
         // Retrieve the 3 closest cargo companies for the given client
         HashMap<String, Object> cargoResult = cargoService.findClosestCargoCompanies(clientId);

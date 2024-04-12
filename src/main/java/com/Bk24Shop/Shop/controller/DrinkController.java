@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +25,7 @@ import java.util.List;
 @Tag(name = "Drink", description = "Drinks management APIs")
 @RestController
 @RequestMapping("api/drinks")
+@EnableWebMvc
 public class DrinkController {
 
     @Autowired
@@ -31,7 +33,7 @@ public class DrinkController {
 
     @Operation(
             summary = "Create a Drink",
-            description = "Create Drink  and its Details by specifying.",
+            description = "Create Drink  and its Specification Details.",
             tags = { "drinks", "post" })
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Drink.class), mediaType = "application/json") }),

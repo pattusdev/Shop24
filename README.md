@@ -56,7 +56,7 @@ Shop24 and transport to their clients. They would like your help building these 
 • For a specific cargo company, get a list of drinks transported by date range
 
 # Technologies Used
-***
+
 * Java 8
 * SpringBoot
 * Maven
@@ -70,7 +70,7 @@ Shop24 and transport to their clients. They would like your help building these 
 * Postman
 
 # Project Structure
-***
+
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
 ![img_4.png](img_4.png)
@@ -85,11 +85,11 @@ Shop24 and transport to their clients. They would like your help building these 
 
 
 ## Data models and Sprint development
-***
+
 ![img_7.png](img_7.png)
 
 ## Patterns for REST and APIs
-***
+
 
 ![img_8.png](img_8.png)
 ![img_9.png](img_9.png)
@@ -102,7 +102,6 @@ You can even Try with Swagger
 
 
 ## How to Interract with this project with Postman
-***
 * Clone the Project on GitHub this is the command for git``gh repo clone pattusdev/Shop24_Backend``
 * Go to the Directory of the project after then click ``mvn --version`` or ``mvn install``
 * Run the Project ``mvn spring-boot:run``

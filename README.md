@@ -54,6 +54,7 @@ Shop24 and transport to their clients. They would like your help building these 
 
 # Technologies Used
 
+* IDE: IntelliJea
 * Java 8
 * SpringBoot
 * Maven

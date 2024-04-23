@@ -94,7 +94,7 @@ Shop24 and transport to their clients. They would like your help building these 
 ![img_8.png](img_8.png)
 ![img_9.png](img_9.png)
 
-You can even Try with Swagger
+## You can even Try with Swagger
 
 ![img_10.png](img_10.png)
 
@@ -185,5 +185,7 @@ You can even Try with Swagger
     }
 ]
 ```
+
+### Now we need a front-end
 
 

@@ -4,8 +4,8 @@ BPR Internship Shop24 Challenge
 ## Introduction to Shop24
 
 ### Who is Shop24?
-Shop24 is a soft drinks wholesaler based in Kigali. They would like to avail their services to public by providing a white-label solution to the
-existing retailer companies/hotels. Practically, they will build a set of APIs that hotels will use to manage their requests of buying from
+Shop24 is a soft drinks wholesaler based in Kigali. They would like to avail their services to the public by providing a white-label solution to the
+existing retailer companies/hotels. Practically, they will build a set of APIs that hotels will use to manage their requests to buy from
 Shop24 and transport to their clients. They would like your help building these APIs and document them using swagger
 
 ### Technology constraints
@@ -23,18 +23,18 @@ Shop24 and transport to their clients. They would like your help building these 
 ### DRINKS
 • Get a list of all drinks.
 
-• Get a list of most consumed drinks and quantity.
+• Get a list of the most consumed drinks and quantity.
 
-• Get a list of all available drinks and nearest cargo company to the client within 3km based on the client's location.
+• Get a list of all available drinks and the nearest cargo company to the client within 3km based on the client's location.
 
 • Get a specific drink by ID.
 
 ### ORDER
 • Create a new 'order' request by assigning a list of drinks to a specific client.
 
-• Choose top five orders that were requested by different clients.
+• Choose the top five orders that were requested by different clients.
 
-• Get top 10 paid orders, their client details, and transporter details.
+• Get the top 10 paid orders, their client details, and transporter details.
 
 • Complete an order.
 
@@ -54,7 +54,7 @@ Shop24 and transport to their clients. They would like your help building these 
 
 # Technologies Used
 
-* IDE: IntelliJea
+* IDE: IntelliJ IDEA
 * Java 8
 * SpringBoot
 * Maven

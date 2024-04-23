@@ -66,6 +66,7 @@ Shop24 and transport to their clients. They would like your help building these 
 * Jackson-module-kotlin
 * Thymeleaf
 * Postman
+* Swagger
 
 # Project Structure
 

@@ -187,11 +187,11 @@ Shop24 and transport to their clients. They would like your help building these 
 ```
 
 ### Now we need a view in MVC
-you can use:
-* Thymeleaf + jQuery + AJAX
-or 
-Open another Server:
-* Reactjs
+* you can use Thymeleaf + jQuery + AJAX
+
+or
+
+* Open another Server: Reactjs
 
 ### I tried to use Thymeleaf but React was better and powerful
 ![img_11.png](img_11.png)

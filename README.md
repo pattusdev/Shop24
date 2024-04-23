@@ -18,9 +18,6 @@ Shop24 and transport to their clients. They would like your help building these 
 • You should include a README file that has instructions for us to get the solution running on our machines
 
 
-## What are we not looking to test?
-• We don't expect you to implement authentication or authorization
-
 ## API Requirements for Shop24
 
 ### DRINKS

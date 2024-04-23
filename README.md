@@ -60,7 +60,7 @@ Shop24 and transport to their clients. They would like your help building these 
 * MySql
 * JPA Hibernate
 * Lombok
-* Openapi
+* OpenApi
 * Google-maps-services API
 * Jackson-module-kotlin
 * Thymeleaf

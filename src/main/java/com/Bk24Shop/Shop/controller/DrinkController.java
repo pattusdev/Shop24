@@ -1,6 +1,6 @@
 package com.Bk24Shop.Shop.controller;
 
-import com.Bk24Shop.Shop.dto.DrinkDTO;
+import com.Bk24Shop.Shop.dto.DrinkDTO; // Import DrinkDTO from dto
 import com.Bk24Shop.Shop.dto.MostConsumedDrinkDTO;
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;

@@ -1,6 +1,6 @@
 package com.Bk24Shop.Shop.controller;
 
-import com.Bk24Shop.Shop.dto.ClientDTO;
+import com.Bk24Shop.Shop.dto.ClientDTO; // Import ClientDTO from dto
 import com.Bk24Shop.Shop.enums.Errors;
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.entity.Client;

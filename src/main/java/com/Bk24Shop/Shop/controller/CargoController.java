@@ -4,7 +4,7 @@ package com.Bk24Shop.Shop.controller;
 import com.Bk24Shop.Shop.dto.CargoDTO; // Import cargoDTO from dto
 
 import com.Bk24Shop.Shop.entity.Drink; // Import Drink from entity
-import com.Bk24Shop.Shop.enums.Errors;
+import com.Bk24Shop.Shop.enums.Errors; // Import Errors from enums
 import com.Bk24Shop.Shop.entity.Error;
 import com.Bk24Shop.Shop.entity.Cargo;
 import com.Bk24Shop.Shop.entity.Success;
